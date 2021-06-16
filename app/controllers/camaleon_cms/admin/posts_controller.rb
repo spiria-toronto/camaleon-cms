@@ -35,7 +35,7 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
     end
 
     posts_all = posts_all.where(user_id: cama_current_user) if cannot?(:edit_other, @post_type) # filter only own contents 
-    @posts = posts_all.order(post_order: :desc)
+    @posts = posts_all
     params[:s] = 'published' unless params[:s].present?
     @lists_tab = params[:s]
     case params[:s]
@@ -49,6 +49,8 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
 
     @btns = {published: "#{t('camaleon_cms.admin.post_type.published')} (#{posts_all.published.size})", all: "#{t('camaleon_cms.admin.post_type.all')} (#{posts_all.no_trash.size})", pending: "#{t('camaleon_cms.admin.post_type.pending')} (#{posts_all.pending.size})", draft: "#{t('camaleon_cms.admin.post_type.draft')} (#{posts_all.drafts.size})", trash: "#{t('camaleon_cms.admin.post_type.trash')} (#{posts_all.trash.size})"}
     per_page = 9999999 if @post_type.manage_hierarchy?
+
+    @posts.reverse! if @post_type == 23
     r = {posts: @posts, post_type: @post_type, btns: @btns, all_posts: posts_all, render: 'index', per_page: per_page }
     hooks_run("list_post", r)
     add_breadcrumb "#{@btns[params[:s].to_sym]}" if params[:s].present?
