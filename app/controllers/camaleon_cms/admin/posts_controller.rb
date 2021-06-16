@@ -52,7 +52,7 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
 
     puts('*********')
     puts(@posts)
-    @posts.reverse!
+    @post = @posts.reverse
     puts(@post_type)
     puts(@posts)
     puts('*********')
