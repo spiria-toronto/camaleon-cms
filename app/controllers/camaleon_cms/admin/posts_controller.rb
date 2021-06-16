@@ -36,7 +36,7 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
 
     posts_all = posts_all.where(user_id: cama_current_user) if cannot?(:edit_other, @post_type) # filter only own contents 
     puts('*********')
-    puts(@posts.first.id)
+    puts(@posts)
     @posts = posts_all.order('id DESC')
     params[:s] = 'published' unless params[:s].present?
     @lists_tab = params[:s]
