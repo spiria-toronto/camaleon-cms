@@ -51,6 +51,7 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
     per_page = 9999999 if @post_type.manage_hierarchy?
 
     puts('*********')
+    puts(@posts.class)
     puts(@posts)
     @post = @posts.reverse
     puts(@post_type)
