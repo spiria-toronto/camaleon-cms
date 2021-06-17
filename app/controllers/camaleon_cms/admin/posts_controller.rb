@@ -50,17 +50,10 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
     @btns = {published: "#{t('camaleon_cms.admin.post_type.published')} (#{posts_all.published.size})", all: "#{t('camaleon_cms.admin.post_type.all')} (#{posts_all.no_trash.size})", pending: "#{t('camaleon_cms.admin.post_type.pending')} (#{posts_all.pending.size})", draft: "#{t('camaleon_cms.admin.post_type.draft')} (#{posts_all.drafts.size})", trash: "#{t('camaleon_cms.admin.post_type.trash')} (#{posts_all.trash.size})"}
     per_page = 9999999 if @post_type.manage_hierarchy?
 
-    puts('*********')
-    puts(@posts.class)
-    puts(@posts)
-    @post = @posts.to_a.reverse
-    puts(@post_type)
-    puts(@posts)
-    puts('*********')
     r = {posts: @posts, post_type: @post_type, btns: @btns, all_posts: posts_all, render: 'index', per_page: per_page }
     hooks_run("list_post", r)
     add_breadcrumb "#{@btns[params[:s].to_sym]}" if params[:s].present?
-    @posts = r[:posts].paginate(:page => params[:page], :per_page => r[:per_page])
+    @posts = r[:posts].paginate(:page => params[:page], :per_page => r[:per_page]).order('created_at DESC')
     render r[:render]
   end
 
