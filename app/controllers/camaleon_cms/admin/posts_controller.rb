@@ -53,7 +53,7 @@ class CamaleonCms::Admin::PostsController < CamaleonCms::AdminController
     r = {posts: @posts, post_type: @post_type, btns: @btns, all_posts: posts_all, render: 'index', per_page: per_page }
     hooks_run("list_post", r)
     add_breadcrumb "#{@btns[params[:s].to_sym]}" if params[:s].present?
-    @posts = r[:posts].paginate(:page => params[:page], :per_page => r[:per_page]).order('posts.created_at DESC')
+    @posts = r[:posts].paginate(:page => params[:page], :per_page => r[:per_page]).latest
     render r[:render]
   end
 
