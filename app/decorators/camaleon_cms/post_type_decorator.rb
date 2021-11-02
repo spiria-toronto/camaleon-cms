@@ -10,8 +10,7 @@ class CamaleonCms::PostTypeDecorator < CamaleonCms::TermTaxonomyDecorator
     args[:locale] = get_locale unless args.include?(:locale)
     args[:format] = args[:format] || "html"
     as_path = args.delete(:as_path)
-    suffix = as_path.present? ? "path" : "url"
-    route = self.id == 23 ? "cama_article_#{suffix}" : "cama_post_type_#{self.id}_#{suffix}"
+    route = "cama_post_type_#{self.id}_#{as_path.present? ? "path" : "url"}"
     PluginRoutes.reload unless Rails.application.routes.url_helpers.method_defined?(route.to_sym)
     h.cama_url_to_fixed(route, args)
   end
