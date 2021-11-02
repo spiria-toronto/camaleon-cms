@@ -31,6 +31,11 @@ module CamaleonCms::Frontend::ApplicationHelper
 
     options.delete(:format) if PluginRoutes.system_info["skip_format_url"].present?
     cama_current_site_host_port(options) unless options.keys.include?(:host)
-    send(url_to.gsub('-', '_'), *(args << options))
+
+    if args[:post_type_id] == 23
+      send(cama_article_url, *(args << options))
+    else
+      send(url_to.gsub('-', '_'), *(args << options))
+    end
   end
 end
