@@ -65,7 +65,7 @@ class CamaleonCms::PostDecorator < CamaleonCms::ApplicationDecorator
     ptype = object.post_type.decorate
     p_url_format = ptype.contents_route_format
     p_url_format = "hierarchy_post" if ptype.manage_hierarchy?
-    p_url_format = "article" if ptype.id == 23
+    return send("cama_article_#{p}", *args) if ptype.id == 23
 
     case p_url_format
       when "post_of_post_type"
@@ -103,7 +103,6 @@ class CamaleonCms::PostDecorator < CamaleonCms::ApplicationDecorator
           p_url_format = "post"
         end
     end
-    puts(p_url_format)
     h.cama_url_to_fixed("cama_#{p_url_format}_#{p}", args)
   end
 
