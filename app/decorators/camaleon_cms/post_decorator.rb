@@ -66,10 +66,6 @@ class CamaleonCms::PostDecorator < CamaleonCms::ApplicationDecorator
     p_url_format = ptype.contents_route_format
     p_url_format = "hierarchy_post" if ptype.manage_hierarchy?
 
-    if ptype.id == 23
-      return p == "path" ? cama_article_path(post_type_slug: args[:slug]) : cama_article_url(post_type_slug: args[:slug])
-    end
-
     case p_url_format
       when "post_of_post_type"
         args[:label] = I18n.t('routes.group', default: 'group')
