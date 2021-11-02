@@ -68,6 +68,7 @@ class CamaleonCms::PostDecorator < CamaleonCms::ApplicationDecorator
 
     if ptype.id == 23
       args[:post_type_slug] = the_slug(args[:locale])
+      args.delete(:slug)
       return h.cama_url_to_fixed("cama_article_#{p}", args) 
     end
 
