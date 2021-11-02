@@ -65,7 +65,7 @@ class CamaleonCms::PostDecorator < CamaleonCms::ApplicationDecorator
     ptype = object.post_type.decorate
     p_url_format = ptype.contents_route_format
     p_url_format = "hierarchy_post" if ptype.manage_hierarchy?
-    return send("cama_article_#{p}", post_type_slug: ptype.the_slug) if ptype.id == 23
+    return send("cama_article_#{p}", { post_type_slug: ptype.the_slug }) if ptype.id == 23
 
     case p_url_format
       when "post_of_post_type"
