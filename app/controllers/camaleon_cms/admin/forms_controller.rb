@@ -40,7 +40,7 @@ class CamaleonCms::Admin::FormsController < CamaleonCms::AdminController
   end
 
   def marketing
-    @posts = MarketinForm.order(created_at: :desc)
+    @posts = MarketingForm.order(created_at: :desc)
   end
 
   def financing
