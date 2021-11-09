@@ -41,7 +41,7 @@
                         <%end%>
                     </td>
                     <td><%= link_to 'CSV',download_form_path(form: 'product_change', id: post.id) %></td>
-                    <td><%= link_to 'PDF', download_form_pdf_path(id: post.id, format: :pdf, form: 'Product Change'), target: '_blank' %></td>
+                    <td><%= link_to 'PDF', download_form_pdf_path(id: post.id, format: :pdf, form: 'ProductChange'), target: '_blank' %></td>
                     <td>
                         <%= link_to delete_contact_form_path(id: post.id, form: 'ProductChange'), method: :delete, data: {confirm: "Are you sure?"} do %> 
                            <i class="fa fa-times"></i>
