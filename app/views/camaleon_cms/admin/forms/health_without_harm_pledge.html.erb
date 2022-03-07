@@ -32,7 +32,7 @@
                 <tr>
                     <td><%= post.id %></td>
                     <td><%= post.created_at %></td>
-                    <td><%= post.first_name %> <%= post.last_name %></td>
+                    <td><%= post.full_name %></td>
                     <td><%= post.email %></td>
                     <td><%= link_to 'CSV',download_form_path(form: 'health_without_harm_pledge', id: post.id) %></td>
                     <td><%= link_to 'PDF', download_form_pdf_path(id: post.id, format: :pdf, form: 'HealthWithoutHarmPledge'), target: '_blank' %></td>
