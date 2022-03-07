@@ -66,4 +66,8 @@ class CamaleonCms::Admin::FormsController < CamaleonCms::AdminController
   def contract_support_pharmacy
     @posts = ContractSupportPharmacyForm.order(created_at: :desc)
   end
+
+  def health_without_harm
+    @posts = HealtWithoutHarmForm.order(created_at: :desc)
+  end
 end
