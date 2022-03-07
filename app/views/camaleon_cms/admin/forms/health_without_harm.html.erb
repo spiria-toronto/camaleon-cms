@@ -5,8 +5,8 @@
                 <h4 class="pull-left" style="width: 100%;">
                     <%= 'Contract Support Pharmacy Forms' %>
                     <div class='pull-right'>
-                        <%= link_to 'Download All',download_form_path(form: 'health_without_harm'), class: ' btn btn-primary' %>
-                        <%= link_to 'Download New',download_form_path(form: 'health_without_harm', only: 'new'), class: ' btn btn-success' %>
+                        <%= link_to 'Download All',download_form_path(form: 'health_without_harm_pledge'), class: ' btn btn-primary' %>
+                        <%= link_to 'Download New',download_form_path(form: 'health_without_harm_pledge', only: 'new'), class: ' btn btn-success' %>
                     </div>
                 </h4>
             </div>
@@ -34,10 +34,10 @@
                     <td><%= post.created_at %></td>
                     <td><%= post.first_name %> <%= post.last_name %></td>
                     <td><%= post.email %></td>
-                    <td><%= link_to 'CSV',download_form_path(form: 'health_without_harm', id: post.id) %></td>
-                    <td><%= link_to 'PDF', download_form_pdf_path(id: post.id, format: :pdf, form: 'HealthWithoutHarm'), target: '_blank' %></td>
+                    <td><%= link_to 'CSV',download_form_path(form: 'health_without_harm_pledge', id: post.id) %></td>
+                    <td><%= link_to 'PDF', download_form_pdf_path(id: post.id, format: :pdf, form: 'HealthWithoutHarmPledge'), target: '_blank' %></td>
                     <td>
-                        <%= link_to delete_contact_form_path(id: post.id, form: 'HealthWithoutHarm'), method: :delete, data: {confirm: "Are you sure?"} do %> 
+                        <%= link_to delete_contact_form_path(id: post.id, form: 'HealthWithoutHarmPledge'), method: :delete, data: {confirm: "Are you sure?"} do %> 
                            <i class="fa fa-times"></i>
                         <%end%>    
                     </td>
