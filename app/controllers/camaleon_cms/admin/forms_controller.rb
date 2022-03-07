@@ -68,6 +68,6 @@ class CamaleonCms::Admin::FormsController < CamaleonCms::AdminController
   end
 
   def health_without_harm_pledge
-    @posts = HealtWithoutHarmPledgeForm.order(created_at: :desc)
+    @posts = HealthWithoutHarmPledgeForm.order(created_at: :desc)
   end
 end
