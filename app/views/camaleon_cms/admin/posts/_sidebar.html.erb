@@ -164,6 +164,7 @@
 </div>
 <script>
     $("#feature-image input").change(value => {
+        console.log(value)
         if (value != "") {
             $("#thumb-input").addClass("required")
             $("#thumb-label").append("<em class='text-danger'>*</em>")
