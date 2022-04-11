@@ -310,6 +310,7 @@ function cama_upload_feature_image(data) {
     $.fn.upload_filemanager($.extend({
         formats: "image",
         selected: function (image) {
+            debugger;
             var image_url = image.url;
             $('#feature-image img').attr('src', image_url);
             $('#feature-image input').val(image_url);
