@@ -162,18 +162,3 @@
 
     <%= _hook_args = {html: "", f: f, post: @post, post_type: @post_type}; hooks_run("post_form_sidebar_custom_html", _hook_args); raw(_hook_args[:html]); %>
 </div>
-<script>
-    $( document ).ready(() => {
-        debugger;
-        $("#feature-image input").change(value => {
-            console.log(value)
-            if (value != "") {
-                $("#thumb-input").addClass("required")
-                $("#thumb-label").append("<em class='text-danger'>*</em>")
-            } else {
-                $("#thumb-input").removeClass("required")
-                $("#thumb-input em").remove()
-            }
-        })
-    })
-</script>
