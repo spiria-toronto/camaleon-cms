@@ -233,9 +233,6 @@ function cama_init_post(obj) {
         $form.on("click", ".gallery-item-remove", function () {
             $('#feature-image').hide();
             $('#feature-image input').val('');
-
-            $("#thumb-input").removeClass("required")
-            $("#thumb-input em").remove()
             return false;
         });
 
@@ -310,15 +307,11 @@ function cama_upload_feature_image(data) {
     $.fn.upload_filemanager($.extend({
         formats: "image",
         selected: function (image) {
-            debugger;
             var image_url = image.url;
             $('#feature-image img').attr('src', image_url);
             $('#feature-image input').val(image_url);
             $('#feature-image .meta strong').html(image.name);
             $('#feature-image').show();
-
-            $("#thumb-input").addClass("required")
-            $("#thumb-label").append("<em class='text-danger'>*</em>")
         }
     }, data));
 }
