@@ -29,7 +29,7 @@
             <tbody>
             <% @posts.each do |post| %>
                 <tr style="color: <%=post.exported ? '' : 'green';%>">
-                    <td><%= post.created_at %></td>
+                    <td><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y %I:%M %p") %></td>
                     <td><%= post.name %></td>
                     <td><%= post.email %></td>
                     <td><%= post.subject %></td>
