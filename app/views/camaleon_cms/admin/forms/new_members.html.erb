@@ -31,7 +31,7 @@
             <% @posts.each do |post| %>
                 <tr>
                     <td><%= post.id %></td>
-                    <td><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y %I:%M %p") %></td>
+                    <td><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y %I:%M %p") + ' ET' %></td>
                     <td><%= post.first_name %> <%= post.last_name %></td>
                     <td><%= post.email %></td>
                     <td><%= link_to 'CSV',download_form_path(form: 'new_member', id: post.id) %></td>

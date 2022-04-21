@@ -34,7 +34,7 @@
             <% @posts.each do |post| %>
                 <tr>
                     <td><%= post.id %></td>
-                    <td><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y %I:%M %p") %></td>
+                    <td><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y %I:%M %p") + ' ET' %></td>
                     <td><%= post.full_name %></td>
                     <td><%= post.email %></td>
                     <td><%= post.organization %></td>
