@@ -62,6 +62,7 @@ Rails.application.routes.draw do
           get 'contract_support_materials', on: :collection
           get 'contract_support_pharmacy', on: :collection
           get 'health_without_harm_pledge', on: :collection
+          get 'report_download', on: :collection
         end
 
         resources :user_roles, controller: 'user_roles' do

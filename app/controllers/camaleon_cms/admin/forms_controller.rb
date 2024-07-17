@@ -70,4 +70,8 @@ class CamaleonCms::Admin::FormsController < CamaleonCms::AdminController
   def health_without_harm_pledge
     @posts = HealthWithoutHarmPledgeForm.order(created_at: :desc)
   end
+
+  def report_download
+    @posts = ReportDownloadForm.order(created_at: :desc)
+  end
 end

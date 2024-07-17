@@ -62,6 +62,7 @@ module CamaleonCms::Admin::MenusHelper
       items << {icon: "copy", title: 'Contract Support Materials', url: contract_support_materials_cama_admin_forms_path}
       items << {icon: "copy", title: 'Contract Support Pharmacy', url: contract_support_pharmacy_cama_admin_forms_path}
       items << {icon: "copy", title: 'Sustainability', url: health_without_harm_pledge_cama_admin_forms_path}
+      items << {icon: "copy", title: 'Report request', url: report_download_cama_admin_forms_path}
       admin_menu_add_menu("list", {icon: "list", title: t('camaleon_cms.admin.sidebar.forms'), url: "", items: items})
     end
 
